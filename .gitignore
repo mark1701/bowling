@@ -3,3 +3,7 @@
 ################################################################################
 
 /Bowling/.vs/Bowling/v16
+/Bowling/Bowling/obj/Debug
+/Bowling/Bowling/bin/Debug
+/Bowling/BowlingTests/bin/Debug
+/Bowling/BowlingTests/obj/Debug
