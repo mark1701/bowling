@@ -1,8 +1,7 @@
 ﻿using NUnit.Framework;
 
 namespace BowlingTests
-{
-    
+{    
     public class Tests
     {
         [Test]
