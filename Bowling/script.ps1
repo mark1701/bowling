@@ -14,15 +14,11 @@ if ($LASTEXITCODE -eq 0) {
     & $nunit_console $tests $opt1 $opt2
 }
 
-$test = $LASTEXITCODE -eq 0
-$commit = ''
-$revert = ''
+$testsPassed = $LASTEXITCODE -eq 0
 
-if ($test) {
+if ($testsPassed) {
     git commit -am working
 } 
 else {
     git reset --hard
 }
-
-Write-Host "EXIT CODE NUNIT = $LASTEXITCODE"
