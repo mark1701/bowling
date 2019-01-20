@@ -6,11 +6,19 @@ namespace BowlingTests
     public class GameTests
     {
         [Test]
-        public void MaximumGameScore() {
-            var maximumGameScore = 300;
+        public void MaximumScore() {
+            var maximumScore = 300;
             IGame game = new Game();
 
-            Assert.IsTrue(game.CalculateScore() <= maximumGameScore);
+            Assert.IsTrue(game.CalculateScore() <= maximumScore);
+        }
+
+        public void MinimumScore()
+        {
+            var minimumScore = 0;
+            IGame game = new Game();
+
+            Assert.IsTrue(game.CalculateScore() >= minimumScore);
         }
     }
 }
