@@ -14,5 +14,16 @@ namespace BowlingTests
 
             Assert.IsTrue(calculatedValue <= maxValue);
         }
+
+        [Test]
+        public void FrameMinimumScore()
+        {
+            var maxValue = 0;
+
+            IFrame frame = new Frame();
+            var calculatedValue = frame.CalculateScore();
+
+            Assert.IsTrue(calculatedValue >= maxValue);
+        }
     }
 }
