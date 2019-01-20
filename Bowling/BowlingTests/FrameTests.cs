@@ -9,7 +9,7 @@ namespace BowlingTests
         public void MaximumScore() {
             var maximumScore = 30;
 
-            IFrame frame = new Frame();
+            IFrame frame = new Frame(2,2);
             var calculatedValue = frame.CalculateScore();
 
             Assert.IsTrue(calculatedValue <= maximumScore);
@@ -20,7 +20,7 @@ namespace BowlingTests
         {
             var minimumScore = 0;
 
-            IFrame frame = new Frame();
+            IFrame frame = new Frame(2,2);
             var calculatedValue = frame.CalculateScore();
 
             Assert.IsTrue(calculatedValue >= minimumScore);
