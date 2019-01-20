@@ -8,12 +8,8 @@ namespace Bowling
         private readonly List<Roll> _baseRolls;
         private List<Roll> _followingRolls;
 
-        private Frame (List<Roll> rolls) {
+        public Frame (List<Roll> rolls) {
             _baseRolls = rolls;
-        }
-
-        public static Frame CreateFrameFromRolls(List<Roll> rolls) {
-            return new Frame(rolls);
         }
 
         public int CalculateScore()
