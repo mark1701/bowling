@@ -8,7 +8,7 @@
             _frames = new Frame[10];
             for (var i = 0; i < _frames.Length; i++)
             {
-                _frames[i] = new Frame(2,2);
+                _frames[i] = Frame.GetEmptyFrame();
             }
         }
 
