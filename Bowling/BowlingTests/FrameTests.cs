@@ -1,5 +1,6 @@
 ﻿using Bowling;
 using NUnit.Framework;
+using System;
 
 namespace BowlingTests
 {
@@ -9,8 +10,8 @@ namespace BowlingTests
         public void ScoreIsTheSumOfTwoRolls()
         {
             var firstRoll = new Roll(4);
-            var secondRoll = new Roll(12);
-            var expectedResult = 16;
+            var secondRoll = new Roll(2);
+            var expectedResult = 6;
 
             var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
             var calculatedValue = frame.CalculateScore();
@@ -45,6 +46,19 @@ namespace BowlingTests
             var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
 
             Assert.IsFalse(frame.IsBonusRequired());
+        }
+
+        public void CalculateScoreThrowsExceptionIfBonusIsRequiredButNotProvided() {
+
+            var firstRoll = new Roll(1);
+            var secondRoll = new Roll(9);
+            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+
+            Assert.That(() => frame,
+            Throws.Exception
+            .TypeOf<InvalidOperationException>()
+            .With.Message
+            .EqualTo("This frame require a bonus to be applied"));
         }
     }
 }
