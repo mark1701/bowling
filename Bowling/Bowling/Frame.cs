@@ -1,20 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Bowling
 {
     public class Frame
     {
-        private readonly Roll _firstRoll;
-        private readonly Roll _secondRoll;
+        private readonly List<Roll> _baseRolls;
         private Frame _nextFrame;
 
-        private Frame (Roll firstRoll, Roll secondRoll) {
-            _firstRoll = firstRoll;
-            _secondRoll = secondRoll;
+        private Frame (List<Roll> rolls) {
+            _baseRolls = rolls;
         }
 
-        public static Frame CreateFrameFromRolls(Roll firstRoll, Roll secondRoll) {
-            return new Frame(firstRoll, secondRoll);
+        public static Frame CreateFrameFromRolls(List<Roll> rolls) {
+            return new Frame(rolls);
         }
 
         public int CalculateScore()
@@ -22,11 +21,21 @@ namespace Bowling
             if (IsBonusRequired() && _nextFrame == null) {
                 throw new InvalidOperationException("This frame require a bonus to be applied");
             }
-            return _firstRoll.GetScore() + _secondRoll.GetScore();
+            var score = 0;
+
+            foreach (Roll roll in _baseRolls) {
+                score += roll.GetScore();
+            }
+            return score;
         }
 
         public bool IsBonusRequired() {
-            var sumOfBaseRolls = _firstRoll.GetScore() + _secondRoll.GetScore();
+            var sumOfBaseRolls = 0;
+
+            foreach (Roll roll in _baseRolls)
+            {
+                sumOfBaseRolls += roll.GetScore();
+            }
             return sumOfBaseRolls >= 10;
         }
 

@@ -1,6 +1,7 @@
 ﻿using Bowling;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace BowlingTests
 {
@@ -8,9 +9,8 @@ namespace BowlingTests
     {
         [Test]
         public void AllPinsDownInTwoRollsRequireBonusPoints() {
-            var firstRoll = new Roll(4);
-            var secondRoll = new Roll(6);
-            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            var rolls = new List<Roll> { new Roll(4), new Roll(6) };
+            var frame = Frame.CreateFrameFromRolls(rolls);
 
             Assert.IsTrue(frame.IsBonusRequired());
         }
@@ -18,9 +18,8 @@ namespace BowlingTests
         [Test]
         public void AllPinsDownOnTheFirstRollRequireBonusPoints()
         {
-            var firstRoll = new Roll(10);
-            var secondRoll = new Roll(0);
-            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            var rolls = new List<Roll> { new Roll(10) };
+            var frame = Frame.CreateFrameFromRolls(rolls);
 
             Assert.IsTrue(frame.IsBonusRequired());
         }
@@ -28,9 +27,8 @@ namespace BowlingTests
         [Test]
         public void NotAllPinsDownDoesntRequireBonusPoints()
         {
-            var firstRoll = new Roll(1);
-            var secondRoll = new Roll(5);
-            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            var rolls = new List<Roll> { new Roll(1), new Roll(5) };
+            var frame = Frame.CreateFrameFromRolls(rolls);
 
             Assert.IsFalse(frame.IsBonusRequired());
         }
@@ -38,9 +36,8 @@ namespace BowlingTests
         [Test]
         public void CalculateScoreThrowsExceptionIfBonusIsRequiredButNotProvided() {
 
-            var firstRoll = new Roll(1);
-            var secondRoll = new Roll(9);
-            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            var rolls = new List<Roll> { new Roll(9), new Roll(1) };
+            var frame = Frame.CreateFrameFromRolls(rolls);
 
             Assert.That(() => frame.CalculateScore(),
             Throws.Exception
@@ -48,9 +45,8 @@ namespace BowlingTests
             .With.Message
             .EqualTo("This frame require a bonus to be applied"));
 
-            firstRoll = new Roll(10);
-            secondRoll = new Roll(0);
-            frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            rolls = new List<Roll> { new Roll(10), new Roll(0) };
+            frame = Frame.CreateFrameFromRolls(rolls);
 
             Assert.That(() => frame.CalculateScore(),
             Throws.Exception
@@ -62,11 +58,10 @@ namespace BowlingTests
         [Test]
         public void ScoreIsTheSumOfTwoRollsIfTheirSumIsLesserThenTen()
         {
-            var firstRoll = new Roll(4);
-            var secondRoll = new Roll(2);
+            var rolls = new List<Roll> { new Roll(4), new Roll(2) };
             var expectedResult = 6;
 
-            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+            var frame = Frame.CreateFrameFromRolls(rolls);
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(expectedResult, calculatedValue);
