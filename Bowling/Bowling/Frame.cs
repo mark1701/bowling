@@ -6,7 +6,7 @@ namespace Bowling
     public class Frame
     {
         private readonly List<Roll> _baseRolls;
-        private Frame _nextFrame;
+        private List<Roll> _followingRolls;
 
         private Frame (List<Roll> rolls) {
             _baseRolls = rolls;
@@ -18,7 +18,7 @@ namespace Bowling
 
         public int CalculateScore()
         {
-            if (IsBonusRequired() && _nextFrame == null) {
+            if (IsBonusRequired() && _followingRolls == null) {
                 throw new InvalidOperationException("This frame require a bonus to be applied");
             }
             var score = 0;
