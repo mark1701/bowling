@@ -8,7 +8,7 @@ namespace BowlingTests
         [Test]
         public void MaximumScore() {
             var maximumScore = 300;
-            IGame game = new Game();
+            var game = Game.GetNewGame();
 
             Assert.IsTrue(game.CalculateScore() <= maximumScore);
         }
@@ -17,7 +17,7 @@ namespace BowlingTests
         public void MinimumScore()
         {
             var minimumScore = 0;
-            IGame game = new Game();
+            var game = Game.GetNewGame();
 
             Assert.IsTrue(game.CalculateScore() >= minimumScore);
         }

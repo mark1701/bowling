@@ -1,15 +1,19 @@
 ﻿namespace Bowling
 {
-    public interface IGame {
-        int CalculateScore();
-    }
-
-    public class Game : IGame
+    public class Game
     {
-        private readonly IFrame[] _frames;
+        private IFrame[] _frames;
 
-        public Game() {
+        private Game() {
             _frames = new Frame[10];
+            for (var i = 0; i < _frames.Length; i++)
+            {
+                _frames[i] = new Frame();
+            }
+        }
+
+        public static Game GetNewGame() {
+            return new Game();
         }
 
         public int CalculateScore()
