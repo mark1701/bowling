@@ -1,29 +1,22 @@
-﻿namespace Bowling
+﻿using System.Collections.Generic;
+
+namespace Bowling
 {
     public class Game
     {
-        private readonly Frame[] _frames;
+        private readonly List<Frame> _frames;
 
-        private Game() {
-            _frames = new Frame[10];
-            for (var i = 0; i < _frames.Length; i++)
-            {
-                _frames[i] = Frame.CreateEmptyFrame();
+        private Game(List<Roll> rolls)
+        {
+            for (int i = 0; i < rolls.Count-2; i+=2) {
+                var frame = Frame.CreateFrameFromRolls(rolls[i], rolls[i + 1]);
+                _frames.Add(frame);
             }
         }
 
-        private Game(Frame[] frames)
+        public static Game GetGameFromRolls(List<Roll> rolls)
         {
-            _frames = frames;
-        }
-
-        public static Game GetNewGame() {
-            return new Game();
-        }
-
-        public static Game GetGameFromFrames(Frame[] frames)
-        {
-            return new Game(frames);
+            return new Game(rolls);
         }
                
         public int CalculateScore()
