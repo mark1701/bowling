@@ -18,7 +18,8 @@
         }
 
         private int CalculateFramesScore() {
-            return 150;
+            var score = 150;
+            return score;
         }
     }
 }
