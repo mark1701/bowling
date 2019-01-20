@@ -25,5 +25,9 @@
         {
             return _firstRoll.GetScore() + _secondRoll.GetScore();
         }
+
+        public bool IsBonusRequired() {
+            return true;
+        }
     }
 }

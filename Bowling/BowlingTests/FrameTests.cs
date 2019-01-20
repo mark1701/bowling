@@ -27,8 +27,10 @@ namespace BowlingTests
         }
 
         [Test]
-        public void AllPinsDownInTwoRollsGenerateASpare() {
-            Assert.IsTrue(true);
+        public void AllPinsDownInTwoRollsRequireBonusPoints() {
+            var frame = Frame.CreateNewFrame();
+
+            Assert.IsTrue(frame.IsBonusRequired());
         }
     }
 }
