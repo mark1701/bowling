@@ -10,7 +10,7 @@
             _secondRoll = secondRoll;
         }
 
-        public static Frame CreateNewFrame() {
+        public static Frame CreateEmptyFrame() {
             var firstRoll = new Roll(0);
             var secondRoll = new Roll(0);
 
@@ -27,7 +27,7 @@
         }
 
         public bool IsBonusRequired() {
-            return true;
+            return CalculateScore() >= 10;
         }
     }
 }

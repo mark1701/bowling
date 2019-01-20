@@ -7,7 +7,7 @@ namespace BowlingTests
     {
         [Test]
         public void EmptyFrameHasZeroScore() {
-            var frame = Frame.CreateNewFrame();
+            var frame = Frame.CreateEmptyFrame();
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(0, calculatedValue);
@@ -28,7 +28,9 @@ namespace BowlingTests
 
         [Test]
         public void AllPinsDownInTwoRollsRequireBonusPoints() {
-            var frame = Frame.CreateNewFrame();
+            var firstRoll = new Roll(4);
+            var secondRoll = new Roll(6);
+            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
 
             Assert.IsTrue(frame.IsBonusRequired());
         }
