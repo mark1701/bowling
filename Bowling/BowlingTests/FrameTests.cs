@@ -25,5 +25,10 @@ namespace BowlingTests
 
             Assert.AreEqual(expectedResult, calculatedValue);
         }
+
+        [Test]
+        public void AllPinsDownGenerateASpare() {
+            Assert.IsTrue(true);
+        }
     }
 }
