@@ -44,5 +44,15 @@ namespace BowlingTests
 
             Assert.IsTrue(frame.IsBonusRequired());
         }
+
+        [Test]
+        public void NotAllPinsDownDoesntRequireBonusPoints()
+        {
+            var firstRoll = new Roll(1);
+            var secondRoll = new Roll(5);
+            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
+
+            Assert.IsFalse(frame.IsBonusRequired());
+        }
     }
 }
