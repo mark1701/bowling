@@ -12,10 +12,20 @@
             }
         }
 
+        private Game(Frame[] frames)
+        {
+            _frames = frames;
+        }
+
         public static Game GetNewGame() {
             return new Game();
         }
 
+        public static Game GetGameFromFrames(Frame[] frames)
+        {
+            return new Game(frames);
+        }
+               
         public int CalculateScore()
         {
             return CalculateFramesScore();
