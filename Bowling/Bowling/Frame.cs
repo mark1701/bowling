@@ -5,10 +5,10 @@ namespace Bowling
 {
     public class Frame
     {
-        private readonly List<Roll> _baseRolls;
-        private List<Roll> _followingRolls;
+        private readonly List<AbstractRoll> _baseRolls;
+        private List<AbstractRoll> _followingRolls;
 
-        public Frame (List<Roll> rolls) {
+        public Frame (List<AbstractRoll> rolls) {
             _baseRolls = rolls;
         }
 
@@ -19,7 +19,7 @@ namespace Bowling
             }
             var score = 0;
 
-            foreach (Roll roll in _baseRolls) {
+            foreach (AbstractRoll roll in _baseRolls) {
                 score += roll.GetScore();
             }
             return score;
@@ -28,7 +28,7 @@ namespace Bowling
         public bool IsBonusRequired() {
             var sumOfBaseRolls = 0;
 
-            foreach (Roll roll in _baseRolls)
+            foreach (AbstractRoll roll in _baseRolls)
             {
                 sumOfBaseRolls += roll.GetScore();
             }

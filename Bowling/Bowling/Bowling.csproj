@@ -47,9 +47,10 @@
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Roll.cs" />
-    <Compile Include="Spare.cs" />
-    <Compile Include="Strike.cs" />
+    <Compile Include="Model\RegularRoll.cs" />
+    <Compile Include="Model\AbstractRoll.cs" />
+    <Compile Include="Model\SpareRoll.cs" />
+    <Compile Include="Model\StrikeRoll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
