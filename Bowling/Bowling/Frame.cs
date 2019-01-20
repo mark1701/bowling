@@ -2,25 +2,28 @@
 {
     public class Frame
     {
-        private readonly int _firstRoll;
-        private readonly int _secondRoll;
+        private readonly Roll _firstRoll;
+        private readonly Roll _secondRoll;
 
-        private Frame (int firstRoll, int secondRoll) {
+        private Frame (Roll firstRoll, Roll secondRoll) {
             _firstRoll = firstRoll;
             _secondRoll = secondRoll;
         }
 
-        public static Frame GetEmptyFrame() {
-            return new Frame(0, 0);
+        public static Frame GetNewFrame() {
+            var firstRoll = new Roll(0);
+            var secondRoll = new Roll(0);
+
+            return new Frame(firstRoll, secondRoll);
         }
 
-        public static Frame GetFrameFromScore(int firstRoll, int seconRoll) {
-            return new Frame(firstRoll, seconRoll);
+        public static Frame GetFrameFromRolls(Roll firstRoll, Roll secondRoll) {
+            return new Frame(firstRoll, secondRoll);
         }
 
         public int CalculateScore()
         {
-            return _firstRoll + _secondRoll;
+            return _firstRoll.GetScore() + _secondRoll.GetScore();
         }
     }
 }
