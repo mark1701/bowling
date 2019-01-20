@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Bowling;
+using NUnit.Framework;
 
 namespace BowlingTests
 {
@@ -7,9 +8,11 @@ namespace BowlingTests
         [Test]
         public void FrameMaximumScore() {
             var maxValue = 30;
-            var actualValue = 15;
 
-            Assert.IsTrue(actualValue <= maxValue);
+            IFrame frame = new Frame();
+            var calculatedValue = frame.CalculateScore();
+
+            Assert.IsTrue(calculatedValue <= maxValue);
         }
     }
 }
