@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrameFactory.cs" />
     <Compile Include="Model\Frame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Model\IFrame.cs" />
