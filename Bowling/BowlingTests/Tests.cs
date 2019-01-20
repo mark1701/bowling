@@ -6,7 +6,10 @@ namespace BowlingTests
     {
         [Test]
         public void DummyTest() {
-            Assert.AreEqual(1, 1);
+            var gameScore = 300;
+            var expectedScore = 300;
+
+            Assert.AreEqual(expectedScore, gameScore);
         }
     }
 }
