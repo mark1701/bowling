@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace BowlingTests
 {    
-    public class Tests
+    public class GameTests
     {
         [Test]
         public void MaximumGameScore() {
