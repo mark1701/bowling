@@ -1,4 +1,6 @@
-﻿namespace Bowling
+﻿using System;
+
+namespace Bowling
 {
     public class Frame
     {
@@ -17,13 +19,10 @@
 
         public int CalculateScore()
         {
-            try
-            {
-                return _firstRoll.GetScore() + _secondRoll.GetScore();
+            if (IsBonusRequired() && _nextFrame == null) {
+                throw new InvalidOperationException("This frame require a bonus to be applied");
             }
-            catch (System.Exception e) {
-                throw;
-            }
+            return _firstRoll.GetScore() + _secondRoll.GetScore();
         }
 
         public bool IsBonusRequired() {
@@ -31,8 +30,5 @@
             return sumOfBaseRolls >= 10;
         }
 
-        public void ApplyBonus(Frame nextFrame) {
-            _nextFrame = nextFrame;
-        }
     }
 }

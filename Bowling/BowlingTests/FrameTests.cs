@@ -7,7 +7,7 @@ namespace BowlingTests
     public class FrameTests
     {
         [Test]
-        public void ScoreIsTheSumOfTwoRolls()
+        public void ScoreIsTheSumOfTwoRollsIfTheirSumIsLesserThenTen()
         {
             var firstRoll = new Roll(4);
             var secondRoll = new Roll(2);
@@ -48,13 +48,14 @@ namespace BowlingTests
             Assert.IsFalse(frame.IsBonusRequired());
         }
 
+        [Test]
         public void CalculateScoreThrowsExceptionIfBonusIsRequiredButNotProvided() {
 
             var firstRoll = new Roll(1);
             var secondRoll = new Roll(9);
             var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
 
-            Assert.That(() => frame,
+            Assert.That(() => frame.CalculateScore(),
             Throws.Exception
             .TypeOf<InvalidOperationException>()
             .With.Message
