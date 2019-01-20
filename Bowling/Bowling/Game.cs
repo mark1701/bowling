@@ -6,10 +6,10 @@
 
     public class Game : IGame
     {
-        private readonly object[] _frames;
+        private readonly IFrame[] _frames;
 
         public Game() {
-            _frames = new object[10];
+            _frames = new Frame[10];
         }
 
         public int CalculateScore()
