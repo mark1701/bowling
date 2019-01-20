@@ -22,7 +22,12 @@
         }
 
         private int CalculateFramesScore() {
-            var score = 150;
+            var score = 0;
+
+            foreach (var frame in _frames) {
+                score += frame.CalculateScore();
+            }
+
             return score;
         }
     }
