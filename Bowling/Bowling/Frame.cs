@@ -1,10 +1,6 @@
 ﻿namespace Bowling
 {
-    public interface IFrame {
-        int CalculateScore();
-    }
-
-    public class Frame : IFrame
+    public class Frame
     {
         private readonly int _firstRoll;
         private readonly int _secondRoll;

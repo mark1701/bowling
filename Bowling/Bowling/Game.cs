@@ -2,7 +2,7 @@
 {
     public class Game
     {
-        private readonly IFrame[] _frames;
+        private readonly Frame[] _frames;
 
         private Game() {
             _frames = new Frame[10];
