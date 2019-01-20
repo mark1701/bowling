@@ -5,11 +5,11 @@ namespace BowlingTests
     public class Tests
     {
         [Test]
-        public void DummyTest() {
-            var gameScore = 300;
-            var expectedScore = 300;
+        public void MaximumGameScore() {
+            var maximumGameScore = 300;
+            var gameScore = 150;
 
-            Assert.AreEqual(expectedScore, gameScore);
+            Assert.IsTrue(gameScore <= maximumGameScore);
         }
     }
 }
