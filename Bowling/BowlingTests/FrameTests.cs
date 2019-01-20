@@ -6,24 +6,24 @@ namespace BowlingTests
     public class FrameTests
     {
         [Test]
-        public void FrameMaximumScore() {
-            var maxValue = 30;
+        public void MaximumScore() {
+            var maximumScore = 30;
 
             IFrame frame = new Frame();
             var calculatedValue = frame.CalculateScore();
 
-            Assert.IsTrue(calculatedValue <= maxValue);
+            Assert.IsTrue(calculatedValue <= maximumScore);
         }
 
         [Test]
-        public void FrameMinimumScore()
+        public void MinimumScore()
         {
-            var maxValue = 0;
+            var minimumScore = 0;
 
             IFrame frame = new Frame();
             var calculatedValue = frame.CalculateScore();
 
-            Assert.IsTrue(calculatedValue >= maxValue);
+            Assert.IsTrue(calculatedValue >= minimumScore);
         }
     }
 }
