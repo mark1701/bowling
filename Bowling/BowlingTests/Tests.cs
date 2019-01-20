@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Bowling;
+using NUnit.Framework;
 
 namespace BowlingTests
 {    
@@ -7,9 +8,9 @@ namespace BowlingTests
         [Test]
         public void MaximumGameScore() {
             var maximumGameScore = 300;
-            var gameScore = 150;
+            var game = new Game();
 
-            Assert.IsTrue(gameScore <= maximumGameScore);
+            Assert.IsTrue(game.CalculateScore() <= maximumGameScore);
         }
     }
 }
