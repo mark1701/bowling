@@ -10,14 +10,14 @@
             _secondRoll = secondRoll;
         }
 
-        public static Frame GetNewFrame() {
+        public static Frame CreateNewFrame() {
             var firstRoll = new Roll(0);
             var secondRoll = new Roll(0);
 
             return new Frame(firstRoll, secondRoll);
         }
 
-        public static Frame GetFrameFromRolls(Roll firstRoll, Roll secondRoll) {
+        public static Frame CreateFrameFromRolls(Roll firstRoll, Roll secondRoll) {
             return new Frame(firstRoll, secondRoll);
         }
 

@@ -7,7 +7,7 @@ namespace BowlingTests
     {
         [Test]
         public void EmptyFrameHasZeroScore() {
-            var frame = Frame.GetNewFrame();
+            var frame = Frame.CreateNewFrame();
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(0, calculatedValue);
@@ -20,7 +20,7 @@ namespace BowlingTests
             var secondRoll = new Roll(12);
             var expectedResult = 16;
 
-            var frame = Frame.GetFrameFromRolls(firstRoll, secondRoll);
+            var frame = Frame.CreateFrameFromRolls(firstRoll, secondRoll);
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(expectedResult, calculatedValue);
