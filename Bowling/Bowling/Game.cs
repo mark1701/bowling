@@ -9,6 +9,10 @@ namespace Bowling
     {
         public int CalculateScore()
         {
+            return CalculateFramesScore();
+        }
+
+        private int CalculateFramesScore() {
             return 150;
         }
     }
