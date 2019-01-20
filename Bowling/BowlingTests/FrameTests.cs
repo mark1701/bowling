@@ -6,14 +6,6 @@ namespace BowlingTests
     public class FrameTests
     {
         [Test]
-        public void EmptyFrameHasZeroScore() {
-            var frame = Frame.CreateEmptyFrame();
-            var calculatedValue = frame.CalculateScore();
-
-            Assert.AreEqual(0, calculatedValue);
-        }
-
-        [Test]
         public void ScoreIsTheSumOfTwoRolls()
         {
             var firstRoll = new Roll(4);

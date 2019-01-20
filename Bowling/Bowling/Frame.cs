@@ -4,17 +4,11 @@
     {
         private readonly Roll _firstRoll;
         private readonly Roll _secondRoll;
+        private Frame _nextFrame;
 
         private Frame (Roll firstRoll, Roll secondRoll) {
             _firstRoll = firstRoll;
             _secondRoll = secondRoll;
-        }
-
-        public static Frame CreateEmptyFrame() {
-            var firstRoll = new Roll(0);
-            var secondRoll = new Roll(0);
-
-            return new Frame(firstRoll, secondRoll);
         }
 
         public static Frame CreateFrameFromRolls(Roll firstRoll, Roll secondRoll) {
@@ -28,6 +22,10 @@
 
         public bool IsBonusRequired() {
             return CalculateScore() >= 10;
+        }
+
+        public void ApplyBonus(Frame nextFrame) {
+            _nextFrame = nextFrame;
         }
     }
 }
