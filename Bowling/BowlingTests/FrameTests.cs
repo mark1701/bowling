@@ -27,7 +27,7 @@ namespace BowlingTests
         }
 
         [Test]
-        public void AllPinsDownInTwoRoundsGenerateASpare() {
+        public void AllPinsDownInTwoRollsGenerateASpare() {
             Assert.IsTrue(true);
         }
     }
