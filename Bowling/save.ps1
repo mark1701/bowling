@@ -19,6 +19,7 @@ $testsPassed = $LASTEXITCODE -eq 0
 if ($testsPassed) {
 	git add --all
     git commit -am working
+	git push
 } 
 else {
     git reset --hard
