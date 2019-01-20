@@ -17,11 +17,18 @@
 
         public int CalculateScore()
         {
-            return _firstRoll.GetScore() + _secondRoll.GetScore();
+            try
+            {
+                return _firstRoll.GetScore() + _secondRoll.GetScore();
+            }
+            catch (System.Exception e) {
+                throw;
+            }
         }
 
         public bool IsBonusRequired() {
-            return CalculateScore() >= 10;
+            var sumOfBaseRolls = _firstRoll.GetScore() + _secondRoll.GetScore();
+            return sumOfBaseRolls >= 10;
         }
 
         public void ApplyBonus(Frame nextFrame) {
