@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Bowling.Model;
+using System;
 using System.Collections.Generic;
 
 namespace Bowling
 {
-    public class Frame
+    public class Frame : IFrame
     {
         private readonly List<AbstractRoll> _baseRolls;
         private List<AbstractRoll> _followingRolls;

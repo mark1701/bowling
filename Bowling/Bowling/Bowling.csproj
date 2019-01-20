@@ -45,12 +45,12 @@
   <ItemGroup>
     <Compile Include="Model\Frame.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Model\IFrame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\RegularFrame.cs" />
     <Compile Include="Model\Roll.cs" />
-    <Compile Include="Model\Spare.cs" />
-    <Compile Include="Model\Strike.cs" />
+    <Compile Include="Model\SpareFrame.cs" />
+    <Compile Include="Model\StrikeFrame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
