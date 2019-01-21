@@ -2,9 +2,9 @@
 
 namespace Bowling
 {
-    public class SpareRoll : Frame
+    public class SpareFrame : Frame
     {
-        public SpareRoll(List<Roll> rolls) : base(rolls) {}
+        public SpareFrame(List<Roll> rolls) : base(rolls) {}
 
         public override int CalculateScore()
         {
