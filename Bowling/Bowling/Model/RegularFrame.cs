@@ -18,5 +18,7 @@ namespace Bowling.Model
         }
 
         public override bool IsBonusRequired() => false;
+
+        public override void ApplyBonus(List<Roll> followingRolls) { }
     }
 }

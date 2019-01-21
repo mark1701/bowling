@@ -11,5 +11,7 @@ namespace Bowling
             throw new System.NotImplementedException();
         }
         public override bool IsBonusRequired() => true;
+
+        public override void ApplyBonus(List<Roll> followingRolls) { }
     }
 }
