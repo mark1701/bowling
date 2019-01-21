@@ -1,6 +1,6 @@
 ﻿namespace Bowling.Model
 {
-    interface IFrame
+    public interface IFrame
     {
         int CalculateScore();
 
