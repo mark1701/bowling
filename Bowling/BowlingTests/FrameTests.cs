@@ -1,5 +1,4 @@
 ﻿using Bowling;
-using Bowling.Model;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
