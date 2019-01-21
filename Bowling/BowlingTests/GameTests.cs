@@ -11,6 +11,7 @@ namespace BowlingTests
         public void CreateGame(List<string> rollsData)
         {
             _frames = new List<IFrame>();
+            rollsData = GameTestsData.GetTestSequence();
 
             for (int i = 0; i < rollsData.Count - 2; i += 2) {
                 var firstRollData = rollsData[i];
@@ -29,9 +30,9 @@ namespace BowlingTests
 
 
 
-        private class GameTestsData
+        private static class GameTestsData
         {
-            public List<string> GetTestSequence()
+            public static List<string> GetTestSequence()
             {
                 return new List<string>()
                 {
