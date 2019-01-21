@@ -19,6 +19,8 @@ namespace Bowling
         }
         public override bool IsBonusRequired() => true;
 
-        public override void ApplyBonus(List<Roll> followingRolls) { }
+        public override void ApplyBonus(List<Roll> followingRolls) {
+            _followingRolls = followingRolls;
+        }
     }
 }
