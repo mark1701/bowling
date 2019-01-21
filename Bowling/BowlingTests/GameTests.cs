@@ -6,54 +6,56 @@ namespace BowlingTests
 {
     public class GameTests
     {
+
+
+        public void CreateGame(List<string> rolls) {
+
+        }
+
+
+
         private class GameTestsData
         {
-
-            private readonly Roll onePinRoll = new Roll(1);
-            private readonly Roll ninePinsRoll = new Roll(9);
-            private readonly Roll tenPinsRoll = new Roll(10);
-            private readonly Roll zeroPinsRoll = new Roll(0);
-
-            public List<Roll> GetTestSequence()
+            public List<string> GetTestSequence()
             {
-                return new List<Roll>()
+                return new List<string>()
                 {
                     //1
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //2
-                    onePinRoll,
-                    ninePinsRoll,
+                    "1",
+                    "9",
                     //3
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //4
-                    tenPinsRoll,
-                    zeroPinsRoll,
+                    "10",
+                    "X",
                     //5
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //6
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //7
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //8
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //9
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //10
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //11
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                     //12
-                    onePinRoll,
-                    onePinRoll,
+                    "1",
+                    "1",
                 };
             }
         }
