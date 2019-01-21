@@ -9,10 +9,11 @@ namespace BowlingTests
     {
         private List<IFrame> _frames;
 
-        public void CreateGame(List<string> rollsData)
+        [Test]
+        public void CreateGame()
         {
             _frames = new List<IFrame>();
-            rollsData = GameTestsData.GetTestSequence();
+            var rollsData = GameTestsData.GetTestSequence();
 
             for (int i = 0; i < rollsData.Count - 2; i += 2) {
                 var firstRollData = rollsData[i];
