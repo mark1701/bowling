@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Bowling
 {
-    public class SpareRoll
+    public class SpareRoll : Frame
     {
+        public SpareRoll(List<Roll> rolls) : base(rolls) {}
+
+        public override int CalculateScore()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override bool IsBonusRequired()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

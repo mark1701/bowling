@@ -14,6 +14,5 @@ namespace Bowling
         public abstract int CalculateScore();
 
         public abstract bool IsBonusRequired();
-
     }
 }
