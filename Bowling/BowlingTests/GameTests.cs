@@ -1,5 +1,4 @@
 ﻿using Bowling;
-using Bowling.Model;
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -7,32 +6,14 @@ namespace BowlingTests
 {
     public class GameTests
     {
-        private List<IFrame> _frames;
-
         [Test]
-        public void CreateGame()
+        public void LoadingRollsDataIntoAGameGenerateFrames()
         {
-            _frames = new List<IFrame>();
             var rollsData = GameTestsData.GetTestSequence();
+            var game = new Game(rollsData);
 
-            for (int i = 0; i < rollsData.Count - 2; i += 2) {
-                var firstRollData = rollsData[i];
-                var secondRollData = rollsData[i + 1];
-
-                var rolls = new List<Roll> { new Roll(int.Parse(firstRollData)) };
-
-                if (secondRollData != "X") {
-                    rolls.Add(new Roll(int.Parse(secondRollData)));
-                }
-                var frame = FrameFactory.CreateFrame(rolls);
-
-                _frames.Add(frame);
-            }
-
-            Assert.IsTrue(_frames.Count > 1);
+            Assert.IsTrue(game.HasFrames());
         }
-
-
 
         private static class GameTestsData
         {
