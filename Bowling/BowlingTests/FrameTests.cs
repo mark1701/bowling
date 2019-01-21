@@ -8,9 +8,10 @@ namespace BowlingTests
 {
     public class FrameTests
     {
+        [Test]
         public void AllPinsDownInTwoRollsRequireBonusPoints() {
             var rolls = new List<Roll> { new Roll(4), new Roll(6) };
-            var frame = new RegularFrame(rolls);
+            var frame = FrameFactory.CreateFrame(rolls);
 
             Assert.IsTrue(frame.IsBonusRequired());
         }
