@@ -72,7 +72,22 @@ namespace BowlingTests
         {
             var baseRolls = new List<Roll> { new Roll(4), new Roll(6) };
             var followingRolls = new List<Roll> { new Roll(4), new Roll(5) };
-            var expectedResult = 4 + 6 + 4;
+            var expectedResult = 10 + 4;
+
+            var frame = FrameFactory.CreateFrame(baseRolls);
+            frame.ApplyBonus(followingRolls);
+
+            var calculatedValue = frame.CalculateScore();
+
+            Assert.AreEqual(expectedResult, calculatedValue);
+        }
+
+        [Test]
+        public void ScoreIsTenPlusTheNextTwoRollsIfFirstRollScoreIsTen()
+        {
+            var baseRolls = new List<Roll> { new Roll(10) };
+            var followingRolls = new List<Roll> { new Roll(4), new Roll(5) };
+            var expectedResult = 10 + 4 + 5;
 
             var frame = FrameFactory.CreateFrame(baseRolls);
             frame.ApplyBonus(followingRolls);
