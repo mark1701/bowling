@@ -29,7 +29,7 @@ namespace BowlingTests
                 _frames.Add(frame);
             }
 
-            Assert.IsTrue(true);
+            Assert.IsTrue(_frames.Count > 1);
         }
 
 
