@@ -1,10 +1,10 @@
 ﻿namespace Bowling
 {
-    public class AbstractRoll
+    public class Roll
     {
         private readonly int _score;
 
-        public AbstractRoll(int score) {
+        public Roll(int score) {
             _score = score;
         }
 

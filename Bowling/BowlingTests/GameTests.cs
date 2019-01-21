@@ -9,14 +9,14 @@ namespace BowlingTests
         private class GameTestsData
         {
 
-            private readonly AbstractRoll onePinRoll = new AbstractRoll(1);
-            private readonly AbstractRoll ninePinsRoll = new AbstractRoll(9);
-            private readonly AbstractRoll tenPinsRoll = new AbstractRoll(10);
-            private readonly AbstractRoll zeroPinsRoll = new AbstractRoll(0);
+            private readonly Roll onePinRoll = new Roll(1);
+            private readonly Roll ninePinsRoll = new Roll(9);
+            private readonly Roll tenPinsRoll = new Roll(10);
+            private readonly Roll zeroPinsRoll = new Roll(0);
 
-            public List<AbstractRoll> GetTestSequence()
+            public List<Roll> GetTestSequence()
             {
-                return new List<AbstractRoll>()
+                return new List<Roll>()
                 {
                     //1
                     onePinRoll,
