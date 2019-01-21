@@ -25,7 +25,7 @@ namespace BowlingTests
         }
 
         [Test]
-        public void NotAllPinsDownDoesntRequireBonusPoints()
+        public void NotAllPinsDownDoesNotRequireBonusPoints()
         {
             var rolls = new List<Roll> { new Roll(1), new Roll(5) };
             var frame = FrameFactory.CreateFrame(rolls);
@@ -56,12 +56,27 @@ namespace BowlingTests
         }
 
         [Test]
-        public void ScoreIsTheSumOfTwoRollsIfTheirSumIsLesserThenTen()
+        public void ScoreIsTheSumOfTwoBaseRollsIfTheirSumIsLesserThenTen()
         {
             var rolls = new List<Roll> { new Roll(4), new Roll(2) };
-            var expectedResult = 6;
+            var expectedResult = 4 + 2;
 
             var frame = FrameFactory.CreateFrame(rolls);
+            var calculatedValue = frame.CalculateScore();
+
+            Assert.AreEqual(expectedResult, calculatedValue);
+        }
+
+        [Test]
+        public void ScoreIsTenPlusTheNextRollIfScoreInTwoRollsIsTen()
+        {
+            var baseRolls = new List<Roll> { new Roll(4), new Roll(6) };
+            var followingRolls = new List<Roll> { new Roll(4), new Roll(5) };
+            var expectedResult = 4 + 6 + 4;
+
+            var frame = FrameFactory.CreateFrame(baseRolls);
+            frame.ApplyBonus(followingRolls);
+
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(expectedResult, calculatedValue);
