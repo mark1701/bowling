@@ -8,13 +8,7 @@ namespace Bowling.Model
 
         public override int CalculateScore()
         {
-            var score = 0;
-
-            foreach (Roll roll in _baseRolls)
-            {
-                score += roll.GetScore();
-            }
-            return score;
+            return _baseRolls[0].GetScore() + _baseRolls[1].GetScore();
         }
 
         public override bool IsBonusRequired() => false;

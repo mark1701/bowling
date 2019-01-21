@@ -8,7 +8,14 @@ namespace Bowling
 
         public override int CalculateScore()
         {
-            throw new System.NotImplementedException();
+            if (_followingRolls == null || _followingRolls.Count < 2) {
+                throw new System.InvalidOperationException("This frame requires a bonus in order to calculate the score");
+            }
+
+            var firstFollowingRollScore = _followingRolls[0].GetScore();
+            var secondFollowingRollScore = _followingRolls[1].GetScore();
+
+            return 10 + firstFollowingRollScore + secondFollowingRollScore;
         }
 
         public override bool IsBonusRequired() => true;

@@ -37,22 +37,22 @@ namespace BowlingTests
         public void CalculateScoreThrowsExceptionIfBonusIsRequiredButNotProvided() {
 
             var rolls = new List<Roll> { new Roll(9), new Roll(1) };
-            var frame = new RegularFrame(rolls);
+            var frame = FrameFactory.CreateFrame(rolls);
 
             Assert.That(() => frame.CalculateScore(),
             Throws.Exception
             .TypeOf<InvalidOperationException>()
             .With.Message
-            .EqualTo("This frame require a bonus to be applied"));
+            .EqualTo("This frame requires a bonus in order to calculate the score"));
 
             rolls = new List<Roll> { new Roll(10), new Roll(0) };
-            frame = new RegularFrame(rolls);
+            frame = FrameFactory.CreateFrame(rolls);
 
             Assert.That(() => frame.CalculateScore(),
             Throws.Exception
             .TypeOf<InvalidOperationException>()
             .With.Message
-            .EqualTo("This frame require a bonus to be applied"));
+            .EqualTo("This frame requires a bonus in order to calculate the score"));
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace BowlingTests
             var rolls = new List<Roll> { new Roll(4), new Roll(2) };
             var expectedResult = 6;
 
-            var frame = new RegularFrame(rolls);
+            var frame = FrameFactory.CreateFrame(rolls);
             var calculatedValue = frame.CalculateScore();
 
             Assert.AreEqual(expectedResult, calculatedValue);
