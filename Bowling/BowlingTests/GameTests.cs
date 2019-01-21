@@ -1,15 +1,30 @@
 ﻿using Bowling;
-using NUnit.Framework;
+using Bowling.Model;
 using System.Collections.Generic;
 
 namespace BowlingTests
 {
     public class GameTests
     {
+        private List<IFrame> _frames;
 
+        public void CreateGame(List<string> rollsData)
+        {
+            _frames = new List<IFrame>();
 
-        public void CreateGame(List<string> rolls) {
+            for (int i = 0; i < rollsData.Count - 2; i += 2) {
+                var firstRollData = rollsData[i];
+                var secondRollData = rollsData[i + 1];
 
+                var rolls = new List<Roll> { new Roll(int.Parse(firstRollData)) };
+
+                if (secondRollData != "X") {
+                    rolls.Add(new Roll(int.Parse(secondRollData)));
+                }
+                var frame = FrameFactory.CreateFrame(rolls);
+
+                _frames.Add(frame);
+            }
         }
 
 
