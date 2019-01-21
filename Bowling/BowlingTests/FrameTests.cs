@@ -15,10 +15,11 @@ namespace BowlingTests
             Assert.IsTrue(frame.IsBonusRequired());
         }
 
+        [Test]
         public void AllPinsDownOnTheFirstRollRequireBonusPoints()
         {
             var rolls = new List<Roll> { new Roll(10) };
-            var frame = new RegularFrame(rolls);
+            var frame = FrameFactory.CreateFrame(rolls);
 
             Assert.IsTrue(frame.IsBonusRequired());
         }

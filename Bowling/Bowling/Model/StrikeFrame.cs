@@ -11,9 +11,6 @@ namespace Bowling
             throw new System.NotImplementedException();
         }
 
-        public override bool IsBonusRequired()
-        {
-            throw new System.NotImplementedException();
-        }
+        public override bool IsBonusRequired() => true;
     }
 }
