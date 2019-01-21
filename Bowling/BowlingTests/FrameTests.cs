@@ -34,6 +34,7 @@ namespace BowlingTests
             Assert.IsFalse(frame.IsBonusRequired());
         }
 
+        [Test]
         public void CalculateScoreThrowsExceptionIfBonusIsRequiredButNotProvided() {
 
             var rolls = new List<Roll> { new Roll(9), new Roll(1) };
