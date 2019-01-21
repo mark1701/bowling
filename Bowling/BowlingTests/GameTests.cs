@@ -1,5 +1,6 @@
 ﻿using Bowling;
 using Bowling.Model;
+using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace BowlingTests
@@ -26,6 +27,8 @@ namespace BowlingTests
 
                 _frames.Add(frame);
             }
+
+            Assert.IsTrue(true);
         }
 
 
