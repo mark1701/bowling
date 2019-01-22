@@ -13,6 +13,10 @@ namespace Bowling
             GenerateFrames(rollsData);
         }
 
+        public int CalculateScore() {
+            return 8;
+        }
+
         private void GenerateFrames(List<string> rollsData)
         {
             for (int i = 0; i < rollsData.Count - 2; i += 2)

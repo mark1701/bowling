@@ -24,7 +24,7 @@ namespace BowlingTests
             var rollsData = new List<string>() { firstRoll, secondRoll };
             var game = new Game(rollsData);
 
-            var actualResult = 8;
+            var actualResult = game.CalculateScore();
 
             Assert.AreEqual(expectedResult, actualResult);
         }
