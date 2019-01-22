@@ -15,7 +15,29 @@ namespace Bowling
             GenerateFrames(rollsData);
         }
 
-        public int CalculateScore() {
+        public int CalculateScore()
+        {
+            //for (int i = 0; i < _frames.Count - 1; i ++)
+            //{
+            //    var frame = _frames[i];
+            //    if (!frame.IsBonusRequired())
+            //    {
+            //        continue;
+            //    }
+
+            //    var firstFollowingRollData = _rollsData[2 * i];
+            //    var secondFollowingRollData = _rollsData[2 * i + 1];
+
+            //    var followingRolls = new List<Roll> { new Roll(int.Parse(firstFollowingRollData)) };
+
+            //    if (secondFollowingRollData != "X")
+            //    {
+            //        followingRolls.Add(new Roll(int.Parse(secondFollowingRollData)));
+            //    }
+                                
+            //    frame.ApplyBonus(followingRolls);                
+            //}
+
             return 8;
         }
 
