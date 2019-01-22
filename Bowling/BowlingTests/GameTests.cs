@@ -15,6 +15,20 @@ namespace BowlingTests
             Assert.IsTrue(game.HasFrames());
         }
 
+        public void TheScoreOfAGameWithTwoRollsIsTheSumOfTheTwoRolls() {
+
+            var firstRoll = "3";
+            var secondRoll = "5";
+            var expectedResult = 8;
+
+            var rollsData = new List<string>() { firstRoll, secondRoll };
+            var game = new Game(rollsData);
+
+            var actualResult = 8;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
         private static class GameTestsData
         {
             public static List<string> GetTestSequence()
