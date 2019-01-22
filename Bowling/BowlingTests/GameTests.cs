@@ -17,7 +17,7 @@ namespace BowlingTests
         }
 
         [Test, TestCaseSource(typeof(GameTestsData), nameof(GameTestsData.TestCases))]
-        public int TheScoreOfAGameWith2RollsIsTheSumOfThe2Rolls(List<string> rollsData) {
+        public int GameScoreMatchesExpectedResult(List<string> rollsData) {
             var game = new Game(rollsData);
             return game.CalculateScore();
         }
