@@ -41,7 +41,7 @@ namespace Bowling
                 score += frame.CalculateScore();
             }
 
-            return 8;
+            return score;
         }
 
         private void GenerateFrames(List<string> rollsData)
