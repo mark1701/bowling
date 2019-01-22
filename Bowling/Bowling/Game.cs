@@ -5,9 +5,11 @@ namespace Bowling
 {
     public class Game
     {
+        private List<string> _rollsData;
         private List<IFrame> _frames;
 
         public Game(List<string> rollsData) {
+            _rollsData = rollsData;
             _frames = new List<IFrame>();
 
             GenerateFrames(rollsData);
