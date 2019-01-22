@@ -28,10 +28,13 @@ namespace BowlingTests
             {
                 get
                 {
-                    yield return new TestCaseData(new List<string>() { "3", "5" }).Returns(3+5);
+                    yield return new TestCaseData(new List<string>() { "3", "5" }).Returns(3 + 5);
+
                     yield return new TestCaseData(new List<string>() { "3", "7", "3", "5" }).Returns((10 + 3) + (3 + 5));
                     yield return new TestCaseData(new List<string>() { "10", "X", "3", "5" }).Returns((10 + 3 + 5) + (3 + 5));
+
                     yield return new TestCaseData(new List<string>() { "3", "7", "5", "5", "1", "2" }).Returns((10 + 5) + (10 + 1) + (1 + 2));
+                    yield return new TestCaseData(new List<string>() { "10", "X", "10", "X", "1", "2" }).Returns((10 + 10 + 1) + (10 + 1 + 2) + (1 + 2));
                 }
             }
         }

@@ -40,10 +40,12 @@ namespace Bowling
 
             var followingRolls = new List<Roll> { new Roll(int.Parse(firstFollowingRollData)) };
 
-            if (secondFollowingRollData != "X")
+            if (secondFollowingRollData == "X")
             {
-                followingRolls.Add(new Roll(int.Parse(secondFollowingRollData)));
+                secondFollowingRollData = _rollsData[startingRollIndex + 2];
             }
+
+            followingRolls.Add(new Roll(int.Parse(secondFollowingRollData)));
 
             return followingRolls;
         }
