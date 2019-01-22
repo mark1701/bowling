@@ -16,19 +16,10 @@ namespace BowlingTests
             Assert.IsTrue(game.HasFrames());
         }
 
-        [Test]
-        public void TheScoreOfAGameWith2RollsIsTheSumOfThe2Rolls() {
-
-            var firstRoll = "3";
-            var secondRoll = "5";
-            var expectedResult = 8;
-
-            var rollsData = new List<string>() { firstRoll, secondRoll };
+        [Test, TestCaseSource(typeof(GameTestsData), nameof(GameTestsData.TestCases))]
+        public int TheScoreOfAGameWith2RollsIsTheSumOfThe2Rolls(List<string> rollsData) {
             var game = new Game(rollsData);
-
-            var actualResult = game.CalculateScore();
-
-            Assert.AreEqual(expectedResult, actualResult);
+            return game.CalculateScore();
         }
 
         [Test]
@@ -48,14 +39,16 @@ namespace BowlingTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test, TestCaseSource(typeof(SubtractiveTestData), nameof(SubtractiveTestData.TestCases))]
-        public string PositiviseNumber(string numberToConvert)
+        private class GameTestsData
         {
-            return "X";
-        }
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(new List<string>() { "3", "5" }).Returns(8);
+                }
+            }
 
-        private static class GameTestsData
-        {
             public static List<string> GetTestSequence()
             {
                 return new List<string>()
@@ -98,17 +91,6 @@ namespace BowlingTests
                     "1",
                 };
             }                       
-        }
-
-        private class SubtractiveTestData
-        {
-            public static IEnumerable TestCases
-            {
-                get
-                {
-                    yield return new TestCaseData("X").Returns("X");
-                }
-            }
         }
     }
 }
