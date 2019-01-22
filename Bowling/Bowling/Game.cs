@@ -17,6 +17,8 @@ namespace Bowling
 
         public int CalculateScore()
         {
+            var score = 0;
+
             for (int i = 0; i < _frames.Count - 1; i++)
             {
                 var frame = _frames[i];
@@ -36,6 +38,7 @@ namespace Bowling
                 }
 
                 frame.ApplyBonus(followingRolls);
+                score += frame.CalculateScore();
             }
 
             return 8;
