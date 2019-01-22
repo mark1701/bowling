@@ -10,7 +10,7 @@ namespace BowlingTests
         [Test]
         public void LoadingRollsDataIntoAGameGenerateFrames()
         {
-            var rollsData = GameTestsData.GetTestSequence();
+            var rollsData = new List<string>() { "1", "2", "3", "4" };
             var game = new Game(rollsData);
 
             Assert.IsTrue(game.HasFrames());
@@ -21,24 +21,7 @@ namespace BowlingTests
             var game = new Game(rollsData);
             return game.CalculateScore();
         }
-
-        [Test]
-        public void TheScoreOfAGameWith1SpareRollAnd1RegularRollIsTheSumOfTheRollsPlus1Bonus()
-        {
-            var firstRoll = "3";
-            var secondRoll = "7";
-            var thirdRoll = "3";
-            var fourthRoll = "5";
-            var expectedResult = (10 + 3) + (3 + 5);
-
-            var rollsData = new List<string>() { firstRoll, secondRoll, thirdRoll, fourthRoll };
-            var game = new Game(rollsData);
-
-            var actualResult = game.CalculateScore();
-
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
+               
         private class GameTestsData
         {
             public static IEnumerable TestCases
