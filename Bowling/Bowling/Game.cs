@@ -24,7 +24,7 @@ namespace Bowling
                 var frame = _frames[i];
                 if (frame.IsBonusRequired())
                 {
-                    var rollsFollowingTheFrame = GetTwoRollsIfExistent(2 * i);
+                    var rollsFollowingTheFrame = GetTwoRollsIfExistent(i + 2);
                     frame.ApplyBonus(rollsFollowingTheFrame);
                 }
 
