@@ -19,34 +19,38 @@ namespace Bowling
         {
             var score = 0;
 
-            for (int i = 0; i < _frames.Count - 1; i++)
+            for (int i = 0; i < _frames.Count; i++)
             {
                 var frame = _frames[i];
-                if (!frame.IsBonusRequired())
+                if (frame.IsBonusRequired())
                 {
-                    continue;
+                    var rollsFollowingTheFrame = GetTwoRollsIfExistent(2 * i);
+                    frame.ApplyBonus(rollsFollowingTheFrame);
                 }
 
-                var firstFollowingRollData = _rollsData[2 * i];
-                var secondFollowingRollData = _rollsData[2 * i + 1];
-
-                var followingRolls = new List<Roll> { new Roll(int.Parse(firstFollowingRollData)) };
-
-                if (secondFollowingRollData != "X")
-                {
-                    followingRolls.Add(new Roll(int.Parse(secondFollowingRollData)));
-                }
-
-                frame.ApplyBonus(followingRolls);
                 score += frame.CalculateScore();
             }
 
             return score;
         }
 
+        private List<Roll> GetTwoRollsIfExistent(int startingRollIndex) {
+            var firstFollowingRollData = _rollsData[startingRollIndex];
+            var secondFollowingRollData = _rollsData[startingRollIndex + 1];
+
+            var followingRolls = new List<Roll> { new Roll(int.Parse(firstFollowingRollData)) };
+
+            if (secondFollowingRollData != "X")
+            {
+                followingRolls.Add(new Roll(int.Parse(secondFollowingRollData)));
+            }
+
+            return followingRolls;
+        }
+
         private void GenerateFrames(List<string> rollsData)
         {
-            for (int i = 0; i < rollsData.Count - 2; i += 2)
+            for (int i = 0; i < rollsData.Count - 1; i += 2)
             {
                 var firstRollData = rollsData[i];
                 var secondRollData = rollsData[i + 1];

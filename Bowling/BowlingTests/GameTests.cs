@@ -15,6 +15,7 @@ namespace BowlingTests
             Assert.IsTrue(game.HasFrames());
         }
 
+        [Test]
         public void TheScoreOfAGameWithTwoRollsIsTheSumOfTheTwoRolls() {
 
             var firstRoll = "3";
