@@ -1,5 +1,6 @@
 ﻿using Bowling;
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace BowlingTests
@@ -47,6 +48,12 @@ namespace BowlingTests
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        [Test, TestCaseSource(typeof(SubtractiveTestData), nameof(SubtractiveTestData.TestCases))]
+        public string PositiviseNumber(string numberToConvert)
+        {
+            return "X";
+        }
+
         private static class GameTestsData
         {
             public static List<string> GetTestSequence()
@@ -90,6 +97,17 @@ namespace BowlingTests
                     "1",
                     "1",
                 };
+            }                       
+        }
+
+        private class SubtractiveTestData
+        {
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData("X").Returns("X");
+                }
             }
         }
     }
