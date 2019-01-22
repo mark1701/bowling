@@ -35,6 +35,11 @@ namespace Bowling
         }
 
         private List<Roll> GetTwoRollsIfExistent(int startingRollIndex) {
+
+            if (startingRollIndex >= _rollsData.Count) {
+                return new List<Roll>();
+            }
+
             var firstFollowingRollData = _rollsData[startingRollIndex];
             var secondFollowingRollData = _rollsData[startingRollIndex + 1];
 
@@ -55,14 +60,22 @@ namespace Bowling
             for (int i = 0; i < rollsData.Count - 1; i += 2)
             {
                 var firstRollData = rollsData[i];
-                var secondRollData = rollsData[i + 1];
+                var firstRollValue = int.Parse(firstRollData);
 
-                var rolls = new List<Roll> { new Roll(int.Parse(firstRollData)) };
+                var secondRollData = rollsData[i + 1];
+                var secondRollValue = 0;
+
 
                 if (secondRollData != "X")
                 {
-                    rolls.Add(new Roll(int.Parse(secondRollData)));
+                    secondRollValue = int.Parse(secondRollData);
                 }
+
+                if ((firstRollValue + secondRollValue) > 10) {
+                    continue;
+                }
+
+                var rolls = new List<Roll> { new Roll(firstRollValue), new Roll(secondRollValue) };
                 var frame = FrameFactory.CreateFrame(rolls);
 
                 _frames.Add(frame);
