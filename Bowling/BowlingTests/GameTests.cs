@@ -45,7 +45,8 @@ namespace BowlingTests
             {
                 get
                 {
-                    yield return new TestCaseData(new List<string>() { "3", "5" }).Returns(8);
+                    yield return new TestCaseData(new List<string>() { "3", "5" }).Returns(3+5);
+                    yield return new TestCaseData(new List<string>() { "3", "7", "3", "5" }).Returns((10 + 3) + (3 + 5));
                 }
             }
 
