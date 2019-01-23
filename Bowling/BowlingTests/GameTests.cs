@@ -40,6 +40,8 @@ namespace BowlingTests
                     yield return new TestCaseData(new List<string>() { "10", "X", "6", "4", "1", "2" }).Returns((10 + 6 + 4) + (10 + 1) + (1 + 2));
 
                     yield return new TestCaseData(new List<string>() { "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "X", "10", "10" }).Returns(10 * 30);
+
+                    //yield return new TestCaseData(new List<string>() { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "10", "X", "1", "2" }).Returns(13);
                 }
             }
         }
